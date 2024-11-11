@@ -37,7 +37,7 @@ def get_playlist_id(queries, language):
         Todays_TimeStamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         # Specify the directory path
-        directory_path = r'/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Playlist_Name_Retrieval'
+        directory_path = r'/home/Nivetha/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Playlist_Name_Retrieval'
 
         # Check if the directory exists, create it if not
         if not os.path.exists(directory_path):
@@ -103,8 +103,8 @@ def get_playlist_id(queries, language):
 
 Todays_TimeStamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # Add Spotify Credentials
-spotify_id = '1f894be0f84e45ca8e771ebdaf5d5cae' # (removed for privacy)
-spotify_secret = '3ead05aaae744e5ca805f56f054cb762' #(removed for privacy)
+spotify_id = '' # (removed for privacy)
+spotify_secret = '' #(removed for privacy)
 
 # Create a custom cache handler
 cache_path = ".spotify_cache"
@@ -131,14 +131,15 @@ def get_main(queries, language):
     except Exception as e:
         print(f"Error: {str(e)}\n")
         
+# To run it in ipynb file  remove comments and then run 
+
 
 # df_Queries = pd.read_excel("Queries.xlsx")
 # queries = df_Queries['Queries'].to_list()
-
 # get_main(queries)
 
 
-# In[ ]:
+
 
 
 

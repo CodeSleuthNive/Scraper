@@ -6,20 +6,20 @@ This code automates the extraction, processing, and clustering of Odia music-rel
 
 # Key Features
 
-# API Key Rotation:
+### API Key Rotation:
   Automatically rotates through multiple Spotify API keys to handle rate limiting and authentication errors.
   
-# Data Extraction: 
+### Data Extraction: 
   Fetches playlist details and audio features for tracks based on Odia language-related queries.
   
-# Feature Clustering: 
+### Feature Clustering: 
   Groups audio features into clusters, allowing for analysis of track characteristics.
   
-# Automated Alerts: 
+### Automated Alerts: 
   Sends email notifications to specified recipients upon successful execution or if errors occur.
 
   
-##  Functions
+#  Functions
 ###  SpotifyAPIKeyRotator: 
   Manages and rotates Spotify API keys for stable data extraction.
 ###  get_playlist_id: 

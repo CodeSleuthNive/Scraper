@@ -8,7 +8,7 @@ import pandas as pd
 import main as main
 
 
-df_Queries = pd.read_excel(r"/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Scrapping_Odia/Queries.xlsx")
+df_Queries = pd.read_excel(r"C:\Users\nivet\Documents\Spotify Scraping\ueries.xlsx")
 
 
 

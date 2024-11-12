@@ -28,13 +28,9 @@ import sys
 
 # Replace these with your own Spotify API keys
 spotify_credentials   = [
-     {'client_id': 'f1ab5d195fa74703b8c093c5a613d9e3', 'client_secret': 'd819a80b91b1458c89d1eb4a38c37bcb'},
-     {'client_id': '295235b1359c4b2bb164535cf3e41334', 'client_secret': 'fb94a4e52dbc432bb4d69743d38f90bb'},
-    {'client_id': 'e89aaefce0c249b5ad7a963072cbb404', 'client_secret': '9d67e22e93f146ceaf0b60be68ebcc09'},
-     {'client_id': '194b3c155d934b74a5403153073c7ecb', 'client_secret': '88b58f756a564dec9f6010d62ae66ebf'},
-    {'client_id': '1f894be0f84e45ca8e771ebdaf5d5cae', 'client_secret': '3ead05aaae744e5ca805f56f054cb762'},
-    {'client_id': '9f65d1e394124ce8b93c2a2527397ecf', 'client_secret': '6ea20e7b61664bb8b06088bb17af28f3'},
-     {'client_id': 'a5eab52b243843c89cef4987052fd854', 'client_secret': '6b1f9c1b9d284d628aea8ac55feddb66'},
+     {'client_id': '', 'client_secret': ''},
+     {'client_id': '', 'client_secret': ''},
+   
     
      
     # Add more keys as needed
@@ -200,7 +196,7 @@ def cluster_features(audio_features):
 
     print("Feature clustering completed")
     
-    Clustered_Audio_Features_path =  r"/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Scrapping_Odia/Clustered_Audio_Features_Data"
+    Clustered_Audio_Features_path =  r"C:\Users\nivet\Documents\Spotify Scraping\Clustered_Audio_Features_Data"
     # Moutname_Track = f'Clustered_Audio_Features ' + str(Todays_TimeStamp.strftime("%B")) +'_{current_year}'+' data.xlsx'
     Moutname_Track =  f'Clustered_Audio_Features {Todays_TimeStamp.strftime("%B")}_{current_year} data.xlsx'
 
@@ -388,9 +384,9 @@ def fetch_audio_features(Track_ids,df_songs,filtered_counts):
                 subject = 'Odia Spotify Scrapping Failed'
                 output = f'Scraping Skipped some id"s: ' + str(e) + {track_id}
                 
-                sender_email = 'nivetha@tapmobi.in'
-                sender_password = 'Tapmobi@07'
-                recipient_emails = ['nivetha@tapmobi.in']
+                sender_email = 'abc@gmail.com' #add sender email removed for safety purpose
+                sender_password = 'abc'
+                recipient_emails = ['abcd@gmail.com']
 
 
                 sms.send_mail_alert(subject, output, sender_email, sender_password, recipient_emails)
@@ -443,7 +439,7 @@ def extract_playlist_details(playlist_df):
 
     
 
-    Track_ID_Path =  r"/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Scrapping_Odia/Track_Id_Data"
+    Track_ID_Path =  r"C:\Users\nivet\Documents\Spotify Scraping\Track_Id_Data"
     
     Moutname_TrackID = "Track_Total_Ids_Data.xlsx"
     NewDataFileName_TrackID = "Track_New_id_data.xlsx"
@@ -453,7 +449,7 @@ def extract_playlist_details(playlist_df):
 
     
     
-    Track_Details_Path_all =  r"/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Scrapping_Odia/Track_Details_Data"
+    Track_Details_Path_all =  r"C:\Users\nivet\Documents\Spotify Scraping\Track_Details_Data"
     
     Moutname_Track_all = "Track_Total_Details_Data.xlsx"
     NewDataFileName_Track_all = "Track_New_Details_data.xlsx"
@@ -677,7 +673,7 @@ def get_playlist_id(queries):
     # key_rotator = SpotifyAPIKeyRotator(spotify_credentials)
     # print('in:   ', key_rotator)
 
-    PlayList_Id_Path =  r"/home/muzik247/mnt/BACKUP_RUN_BY_MANUAL/Spotify_Scrapping_Odia/Playlist_Id_Data"
+    PlayList_Id_Path =  r"C:\Users\nivet\Documents\Spotify Scraping\Playlist_Id_Data"
     
     Moutname = "PlayList_Total_Ids_Data.xlsx"
     NewDataFileName = "PlayList_New_id_data.xlsx"
@@ -718,45 +714,7 @@ def get_playlist_id(queries):
         playlist_df = pd.DataFrame(playlist_info)
         playlist_df = playlist_df.drop_duplicates(subset='PlaylistID')
         print("Playlist retrieval completed")
-    # playlist_info = []
-
-  
-    # try:
-    #     print('\n\n')
-    #     print_bold(f'Date Scrapped: {Todays_TimeStamp}')
-    #     print_bold("Retrieving Playlists")
-    #     print("Processing search query")
-    #     for index, search_query in enumerate(queries):
-    #         print('search_query', search_query)
-    #         # print('index', index)
-    #         search_results = key_rotator.sp.search(q=search_query, type='playlist', market='IN', limit=3)
-    #         # print(search_results)
-
-    #         for playlist in search_results['playlists']['items']:
-    #             playlist_id = playlist['id']
-    #             playlist_name = playlist['name']
-    #             # print(playlist_name)
-    #             num_songs = playlist['tracks']['total']
-
-    #             pattern = r'\b(?:' + '|'.join(odia_terms) + r')\b'
-    #             if re.search(pattern, playlist_name, flags=re.IGNORECASE):
-    #                 # print('************')
-    #                 playlist_info.append({
-    #                     'PlaylistID': playlist_id,
-    #                     'PlaylistName': playlist_name,
-    #                     'NumSongs': num_songs,
-    #                     'Timestamp': Todays_TimeStamp
-    #                 })
-        
-
-                    
-
-    #     playlist_df = pd.DataFrame(playlist_info)
-    #     print(playlist_df.columns)
-    #     playlist_df = playlist_df.drop_duplicates(subset='PlaylistID')
-    #     print("Playlist retrieval completed")
-
-        #if len(playlist_info) > 0:
+    
         playlist_new_df = playlist_df.copy()
 
         if os.path.exists(PlayList_Id_Path):
@@ -777,11 +735,7 @@ def get_playlist_id(queries):
 
 
         return playlist_df
-
-
-
-   
-        
+  
     except spotipy.exceptions.SpotifyException as e:
         if e.http_status == 429 or e.http_status == 401:  # Rate limited or unauthorized
             print("Encountered rate limit or auth error, rotating credentials")
@@ -800,13 +754,9 @@ def get_playlist_id(queries):
 import datetime
 Todays_TimeStamp = datetime.datetime.now()
 
-
-
 key_rotator = SpotifyAPIKeyRotator(spotify_credentials)
 print('out:   ', key_rotator)
-
-
-    
+   
 def get_main(queries):
     """
     Fetches audio features for a given list of queries.
@@ -854,23 +804,23 @@ def get_main(queries):
         subject = 'Odia Spotify Scrapping Failed'
         output = 'Scraping Failed: ' + str(e)
         
-        sender_email = 'nivetha@tapmobi.in'
-        sender_password = 'Tapmobi@07'
-        recipient_emails = ['nivetha@tapmobi.in', 'datateam@tapmobi.in']
-
+        sender_email = 'abc@gmail.com' #add sender email removed for safety purpose
+        sender_password = 'abc'
+        recipient_emails = ['abcd@gmail.com']
+  
     # Send email notification
         sms.send_mail_alert(subject, output, sender_email, sender_password, recipient_emails)
         return []
     
-    sender_email = 'nivetha@tapmobi.in'
-    sender_password = 'Tapmobi@07'
-    recipient_emails = ['nivetha@tapmobi.in', 'datateam@tapmobi.in']
+        sender_email = 'abc@gmail.com' #add sender email removed for safety purpose
+        sender_password = 'abc'
+        recipient_emails = ['abcd@gmail.com']
 
     # Send email notification
     sms.send_mail_alert(subject, output, sender_email, sender_password, recipient_emails)
     
     
-
+# to run in locally remove the comments 
 # df_Queries = pd.read_excel("Queries_CG.xlsx")
 # queries = df_Queries['Queries'].to_list()
                            

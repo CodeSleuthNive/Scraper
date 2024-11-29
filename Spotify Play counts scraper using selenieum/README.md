@@ -32,11 +32,16 @@ This program scrapes the play counts of Spotify tracks using the Selenium WebDri
    git clone https://github.com/yourusername/spotify-play-count-scraper.git
    cd spotify-play-count-scraper
 
+2. Install the required Python packages:
 
+   ```bash
+   
     pip install selenium pandas
 
+4. If you are running this in a Colab environment, uncomment the following lines to install Chromium and ChromeDriver:
 
-
+    ```bash
+ 
     !apt-get update
     !apt install -y chromium-chromedriver
 
